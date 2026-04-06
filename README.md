@@ -10,7 +10,9 @@ npm install --save-dev @typescript/lib-minumum-common-api@npm:@jcbhmr/minimum-co
 
 ## Usage
 
-```json
+<div><code>tsconfig.json</code></div>
+
+```jsonc
 {
   "compilerOptions": {
     // "minimum-common-api" will import "@typescript/lib-minimum-common-api"
