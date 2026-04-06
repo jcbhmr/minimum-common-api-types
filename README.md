@@ -4,7 +4,21 @@
 
 ## Installation
 
+```sh
+npm install --save-dev @typescript/lib-minumum-common-api@npm:@jcbhmr/minimum-common-api-types
+```
+
 ## Usage
+
+```json
+{
+  "compilerOptions": {
+    // "minimum-common-api" will import "@typescript/lib-minimum-common-api"
+    // which is a renamed dependency on "@jcbhmr/minimum-common-api-types".
+    "lib": ["ES2024", "minimum-common-api"]
+  }
+}
+```
 
 ## Development
 
