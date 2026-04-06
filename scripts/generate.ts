@@ -2,22 +2,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { findPackageJSON } from "node:module";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { type ParserOptions, Visitor, parse as oxcParse } from "oxc-parser"
-import { print as esrapPrint } from "esrap"
-import esrapTS, { type Node as EsrapNode } from "esrap/languages/ts"
 
-async function parseTS(input: string, options?: ParserOptions) {
-    const result = await oxcParse("input.ts", input, options)
-    if (result.errors.length > 0) {
-        throw new AggregateError(result.errors, "Failed to parse TypeScript");
-    }
-    return result.program
-}
-
-function stringifyTS(node: EsrapNode): string {
-    const result = esrapPrint(node, esrapTS({}));
-    return result.code;
-}
 
 const commonInterfaces = [
     "AbortController",
@@ -101,26 +86,17 @@ const commonMethodsAndProperties = [
     "WebAssembly.validate",
 ]
 
-const dom = await (async () => {
+const webScript = await (async () => {
     const path = findPackageJSON("@types/web", import.meta.url)
     if (path == null) {
         throw new Error("Could not find @types/web package.json");
     }
     const fileURL = pathToFileURL(path);
-    const text = await readFile(new URL("./index.d.ts", fileURL), "utf-8");
-    return await parseTS(text, { sourceType: "script" });
+    return await readFile(new URL("./index.d.ts", fileURL), "utf-8");
 })()
 
-const visitor = new Visitor({
-    TSInterfaceDeclaration(node) {
-        if (node.id.name === "URLPattern") {
-            console.log(node)
-        }
-    },
-})
-visitor.visit(dom);
-
+const webModule = webScript.replaceAll(/^((?:interface|type|declare namespace) )/gm, "export $1").replaceAll(/^(\/\/\/ <reference .*\/>)$/gm, "// $1");
 {
-    const text = stringifyTS(dom as any);
-    await writeFile(new URL(import.meta.resolve("../out.d.ts")), text);
+    const fileURL = new URL("../src/types-web-module.d.ts", import.meta.url);
+    await writeFile(fileURL, webModule);
 }
