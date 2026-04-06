@@ -1,0 +1,69 @@
+{
+  "name": "minimum-common-api-types",
+  "version": "0.0.1",
+  "description": "Type definitions for web-interoperable runtime APIs (WinterTC Minimum Common API)",
+  "keywords": [
+    "typescript",
+    "types",
+    "wintertc",
+    "minimum-common-api",
+    "web-interoperable",
+    "server-side",
+    "runtime"
+  ],
+  "license": "MIT",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts"
+    },
+    "./dom": {
+      "types": "./dom.d.ts"
+    },
+    "./html": {
+      "types": "./html.d.ts"
+    },
+    "./fetch": {
+      "types": "./fetch.d.ts"
+    },
+    "./xhr": {
+      "types": "./xhr.d.ts"
+    },
+    "./fileapi": {
+      "types": "./fileapi.d.ts"
+    },
+    "./compression": {
+      "types": "./compression.d.ts"
+    },
+    "./streams": {
+      "types": "./streams.d.ts"
+    },
+    "./encoding": {
+      "types": "./encoding.d.ts"
+    },
+    "./url": {
+      "types": "./url.d.ts"
+    },
+    "./urlpattern": {
+      "types": "./urlpattern.d.ts"
+    },
+    "./webcrypto": {
+      "types": "./webcrypto.d.ts"
+    },
+    "./hr-time": {
+      "types": "./hr-time.d.ts"
+    },
+    "./wasm": {
+      "types": "./wasm.d.ts"
+    },
+    "./console": {
+      "types": "./console.d.ts"
+    }
+  },
+  "files": [
+    "*.d.ts"
+  ],
+  "devDependencies": {
+    "typescript": "^6.0.2"
+  }
+}
