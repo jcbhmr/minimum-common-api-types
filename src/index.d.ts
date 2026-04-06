@@ -1,0 +1,15 @@
+import "./dom.d.ts";
+import "./html.d.ts";
+import "./webidl";
+import "./fetch.d.ts";
+import "./xhr";
+import "./fileapi.d.ts";
+import "./compression.d.ts";
+import "./streams";
+import "./encoding.d.ts";
+import "./url";
+import "./urlpattern";
+import "./webcrypto";
+import "./hr-time.d.ts";
+import "./wasm-js-api-2";
+import "./console.d.ts";
