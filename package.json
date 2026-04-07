@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "@jcbhmr/minimum-common-api-types",
-  "packageManager": "pnpm@10.23.0",
+  "packageManager": "pnpm@10.33.0",
   "types": "./src/index.d.ts",
   "exports": {
     ".": {
@@ -11,6 +11,10 @@
   },
   "devDependencies": {
     "@types/web": "^0.0.345",
-    "@typescript/native-preview": "7.0.0-dev.20260405.1"
+    "@typescript/native-preview": "7.0.0-dev.20260405.1",
+    "vite-node": "^6.0.0"
+  },
+  "scripts": {
+    "generate": "vite-node --script ./scripts/generate.ts"
   }
 }
