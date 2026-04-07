@@ -1,6 +1,7 @@
 {
   "type": "module",
   "name": "@jcbhmr/minimum-common-api-types",
+  "version": "0.1.0",
   "packageManager": "pnpm@10.33.0",
   "types": "./src/index.d.ts",
   "exports": {
@@ -16,5 +17,9 @@
   },
   "scripts": {
     "generate": "vite-node --script ./scripts/generate.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcbhmr/minimum-common-api-types.git"
   }
 }
